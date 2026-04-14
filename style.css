@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1.5rem;
+    background: white;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+
+.header-logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #222;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    gap: 1.6rem;
+    list-style: none;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.header-button {
+    padding: 0.75rem 1.3rem;
+    border: none;
+    border-radius: 999px;
+    background: #c73bc9;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+    flex-wrap: wrap;
+}
+
+.left {
+    flex: 1 1 480px;
+    max-width: 620px;
+}
+
+.left h3 {
+    color: (299, 57%, 51%);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.left h1 {
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    margin-bottom: 1rem;
+}
+
+.left p {
+    font-size: 1rem;
+    max-width: 36rem;
+    margin-bottom: 1.8rem;
+    color: #444;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.85rem 1.35rem;
+    background: #c73bc9;
+    color: white;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.right {
+    flex: 0 1 360px;
+    min-width: 260px;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-button {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid #c73bc9;
+    background: #fff;
+    color: #c73bc9;
+    border-radius: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.menu-line {
+    width: 22px;
+    height: 3px;
+    background: #c73bc9;
+    border-radius: 2px;
+    display: block;
+}
+
+.menu-popup {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 1.5rem;
+    width: 220px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+}
+
+.menu-toggle:checked + .menu-button + .menu-popup {
+    display: block;
+}
+
+.menu-popup {
+    padding: 1rem;
+}
+
+.menu-popup nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+}
+
+.menu-popup nav a {
+    color: #c73bc9;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    padding: 0.55rem 0.5rem;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+}
+
+.menu-popup nav a:hover {
+    background: rgba(0, 119, 255, 0.1);
+}
+
+.close-menu {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    border: none;
+    background: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #555;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-popup-content nav a:hover {
+    background: rgba(0, 119, 255, 0.1);
+}
+
+.close-menu {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    border: none;
+    background: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #555;
+}
+
+.img-btn {
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.img-btn img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.header-button {
+    display: inline-flex;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 860px) {
+    header {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .right img {
+        max-width: 100%;
+    }
+}
