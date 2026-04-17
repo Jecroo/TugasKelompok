@@ -1,3 +1,4 @@
+/* Copyright © 2026 Dudom. All rights reserved. */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
@@ -32,7 +33,7 @@ header {
   display: flex;
   align-items: center;
   gap: 70px;
-  animation: topIn 1.4s ease-in-out 0.2s both;
+  animation: topIn 0.95s ease-in-out 0.2s both;
 }
 
 .header-logo {
@@ -188,7 +189,7 @@ nav {
 .social-section i,
 .hero-img {
   opacity: 0;
-  animation-duration: 1.4s;
+  animation-duration: 0.95s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: both;
 }
@@ -298,12 +299,33 @@ h1 span {
 }
 
 .hero-img {
-  width: 110%;
-  position: absolute;
-  bottom: 50px;
-  right: 0;
-  animation-name: imgIn;
-  animation-delay: 0.2s;
+  display: none;
+}
+
+.site-footer {
+  padding: 22px 0;
+  margin-top: 48px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@keyframes lineIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .social-section {
