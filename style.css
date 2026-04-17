@@ -1,3 +1,4 @@
+/* Copyright © 2026 Dudom. All rights reserved. */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 :root {
@@ -29,7 +30,7 @@ header {
   display: flex;
   align-items: center;
   gap: 70px;
-  animation: topIn 1.4s ease-in-out 0.2s both;
+  animation: topIn 0.95s ease-in-out 0.2s both;
 }
 
 .header-logo {
@@ -112,7 +113,7 @@ nav {
 .social-section i,
 .hero-img {
   opacity: 0;
-  animation-duration: 1.4s;
+  animation-duration: 0.95s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: both;
 }
@@ -189,15 +190,71 @@ h1 span {
 .img-wrap {
   width: 100%;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  padding: 40px;
+}
+
+.hero-line {
+  width: 100%;
+  min-height: 90px;
+  border-radius: 48px;
+  background: linear-gradient(90deg, #47ffc8 0%, #acffe6 100%);
+  box-shadow: 0 30px 70px rgba(31, 120, 255, 0.16);
+  transform: translateX(-20px);
+  animation: lineIn 0.9s ease-out forwards;
+}
+
+.hero-line.line2 {
+  width: 85%;
+  transform: translateX(20px);
+  background: linear-gradient(90deg, #47ffc8 0%, #acffe6 100%);
+}
+
+.hero-line.line3 {
+  width: 50%;
+  transform: translateX(-10px);
+  background: linear-gradient(90deg, #47ffc8 0%, #acffe6 100%);
 }
 
 .hero-img {
-  width: 110%;
-  position: absolute;
-  bottom: 50px;
-  right: 0;
-  animation-name: imgIn;
-  animation-delay: 0.2s;
+  display: none;
+}
+
+.site-footer {
+  padding: 22px 0;
+  margin-top: 48px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+  background: rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(43, 58, 85, 0.08);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@keyframes lineIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .social-section {
