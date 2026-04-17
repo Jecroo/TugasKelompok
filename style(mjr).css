@@ -97,14 +97,67 @@ nav {
 
 .content {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  text-align: center;
-  justify-items: center;
-  align-items: center;
+  grid-template-columns: 1fr;
+  text-align: left;
+  justify-items: start;
+  align-items: start;
+  padding-top: 20px;
+}
+
+.content.images-sides {
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 30px;
 }
 
 .content.centered {
   grid-template-columns: 1fr;
+}
+
+.image-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.image-side.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 520px;
+}
+
+.img-grid .side-img {
+  width: 100%;
+  max-width: unset;
+  min-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.bottom-img {
+  margin-top: 18px;
+  width: 100%;
+  max-width: 520px;
+  min-height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.img-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
 }
 
 .middle {
@@ -122,11 +175,10 @@ nav {
 .middle2 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  min-height: 90vh;
-  text-align: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  text-align: left;
 }
 
 .content h3,
@@ -142,20 +194,23 @@ nav {
 }
 
 .content h3 {
-  font-size: 3.2rem;
+  font-size: 24px;
+  font-weight: 600;
   color: var(--text);
   animation-name: bottomIn;
   animation-delay: 0.2s;
+  margin-top: 20px;
 }
 
 .content h1 {
-  font-size: 6rem;
+  font-size: 42px;
   text-transform: uppercase;
   font-weight: 800;
-  letter-spacing: 5px;
-  margin: -40px 0;
+  letter-spacing: 2px;
+  margin: 0 0 20px 0;
   animation-name: bottomIn;
   animation-delay: 0.3s;
+  color: var(--text);
 }
 
 .header-logo {
@@ -168,9 +223,11 @@ h1 span {
 }
 
 .content p {
-  font-size: 19px;
-  color: var(--muted);
-  margin-top: 20px;
+  font-size: 16px;
+  color: var(--text);
+  margin: 10px 0;
+  line-height: 1.6;
+  text-align: left;
   animation-name: bottomIn;
   animation-delay: 0.4s;
 }
@@ -215,7 +272,29 @@ h1 span {
 
 .img-wrap {
   width: 100%;
-  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.img-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+}
+
+.side-img {
+  width: 100%;
+  max-width: 260px;
+  min-height: 240px;
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 100%, 58% 80%, 42% 80%, 30% 100%, 0 100%);
+  border-radius: 40px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  animation: concaveIn 1.2s ease forwards;
 }
 
 .hero-img {
@@ -287,6 +366,19 @@ h1 span {
   }
 }
 
+@keyframes concaveIn {
+  from {
+    transform: translateY(40px) scale(0.95);
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
 @media screen and (max-width: 428px) {
   body {
     padding: 0 3%;
@@ -306,10 +398,24 @@ h1 span {
     gap: 20px;
   }
 
-  .content {
+  .content,
+  .content.images-sides {
     display: flex;
     flex-direction: column;
     padding-top: 100px;
+    grid-template-columns: unset;
+  }
+
+  .image-side {
+    min-height: auto;
+  }
+
+  .img-stack {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
   }
 
   .content h3 {
