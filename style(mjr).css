@@ -273,42 +273,29 @@ h1 span {
 
 .img-wrap {
   width: 100%;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(14, 117, 255, 0.08), rgba(185, 229, 255, 0.2));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
 }
 
-.hero-lines {
-  position: absolute;
-  inset: 0;
+.img-stack {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 32px;
-  padding: 40px;
-}
-
-.hero-line {
+  gap: 24px;
+  align-items: center;
   width: 100%;
-  min-height: 90px;
-  border-radius: 48px;
-  background: linear-gradient(90deg, #1f78ff 0%, #79d8ff 100%);
-  box-shadow: 0 30px 70px rgba(31, 120, 255, 0.16);
-  transform: translateX(-20px);
-  animation: lineIn 0.9s ease-out forwards;
 }
 
-.hero-line.line2 {
-  width: 85%;
-  transform: translateX(20px);
-  background: linear-gradient(90deg, #2a99ff 0%, #7ce4ff 100%);
-}
-
-.hero-line.line3 {
-  width: 95%;
-  transform: translateX(-10px);
-  background: linear-gradient(90deg, #178dff 0%, #69d4ff 100%);
+.side-img {
+  width: 100%;
+  max-width: 260px;
+  min-height: 240px;
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 100%, 58% 80%, 42% 80%, 30% 100%, 0 100%);
+  border-radius: 40px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  animation: concaveIn 1.2s ease forwards;
 }
 
 .hero-img {
